@@ -31,8 +31,8 @@ Click above to watch a demonstration of the Dynamic Portfolio Web Application in
 1. **Clone the Project Repository:**
 
    ```bash
-   git clone https://github.com//.git
-   cd 
+   git clone https://github.com/kiransingh704140/portfolio_maker.git
+   cd portfolio_maker
    ```
 
 2. **Build the Project:**
