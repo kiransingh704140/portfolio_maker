@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio Confirmation</title>
+    <style>
+       
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .background-image {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('https://picsum.photos/200/300.jpg') no-repeat center center;
+            background-size: cover;
+            opacity: 0.49;
+            z-index: -1;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+            border-radius: 8px;
+            padding: 20px;
+            box-sizing: border-box;
+            max-height: 80vh;
+            overflow-y: auto;
+            margin: auto;
+        }
+
+        h1 {
+            font-size: 48px;
+            color: #333;
+            text-align: center;
+        }
+
+        h2 {
+            font-size: 36px;
+            color: #121212;
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        p {
+            font-size: 24px;
+            color: #080707;
+            margin: 10px 0;
+            text-align: center;
+        }
+
+        strong {
+            font-size: 25px;
+            color: black;
+        }
+
+        .sidebar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 290px;
+            height: 100%;
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+            box-sizing: border-box;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .sidebar img {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+        }
+
+        .sidebar a {
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .sidebar a:hover {
+            background-color: #575757;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-top: auto;
+            gap: 15px;
+        }
+
+        .social-links a {
+            display: inline-block;
+        }
+
+        .social-links img {
+            width: 30px;
+            height: 30px;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .contact-box {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            padding: 10px;
+            border: 0.1px solid #040404;
+            border-radius: 8px;
+            background-color: none;
+            width: 100px;
+        }
+        .defaultImg{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: none;
+            width: 80%;
+            height: 300px;
+            margin-left: 80px;
+        }
+        .contact-box img {
+            width: 50px;
+            height: 50px;
+            margin-bottom: 10px;
+        }
+
+        .contact-box h3 {
+            margin: 0;
+            font-size: 16px;
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background-image"></div>
+    <div class="sidebar">
+        {{#if profile_photo}}
+        <img src="{{profile_photo}}" alt="Profile Photo">
+        {{else}}
+        <p>No profile photo provided.</p>
+        {{/if}}
+        <h3>🧑🏻‍💻 {{name}}</h3>
+        <a href="#home">🏠Home</a>
+        <a href="#blog">✍️Blog</a>
+        <a href="#services">🛠️Projects</a>
+        <a href="#experience">🌟Experience</a>
+        <a href="#contact">📞Contact</a>
+        <div class="social-links">
+            {{#if social_links.github}}
+            <a href="{{social_links.github}}" target="_blank">
+                <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub">
+            </a>
+            {{/if}}
+            {{#if social_links.linkedin}}
+            <a href="{{social_links.linkedin}}" target="_blank">
+                <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">
+            </a>
+            {{/if}}
+            {{#if social_links.twitter}}
+            <a href="{{social_links.twitter}}" target="_blank">
+                <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter">
+            </a>
+            {{/if}}
+            {{#if social_links.facebook}}
+            <a href="{{social_links.facebook}}" target="_blank">
+                <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook">
+            </a>
+            {{/if}}
+        </div>
+    </div>
+
+    <div class="container" id="content">
+        <!-- Default content -->
+        <h2>Home</h2>
+        <p>Hello! My name is <strong>{{name}}</strong></p><br>
+        <p><strong>About Me: </strong></p>
+        <p>{{bio}}</p><br>
+    </div>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const links = document.querySelectorAll(".sidebar a");
+            const contentDiv = document.getElementById("content");
+
+            links.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const section = this.getAttribute("href").substring(1);
+
+                    if (section === "home") {
+                        contentDiv.innerHTML = `
+                            <h2>🏡 Home</h2>
+                            <p><strong>About Me 👇: </strong></p>
+                            <p>👉 {{bio}}</p><br>
+                            <p><strong>🏫 Education: </strong>{{education}}</p>
+                            `;
+
+                    } else if(section === "blog"){
+                        contentDiv.innerHTML=`
+                        <p><strong>📝 Blog : </strong></p>
+                            <p>👉 {{blog}}</p>
+                            <br>
+                        <p><strong>🤝 Services : </strong></p>
+                            <p>👉 {{services}}</p>
+                        `;
+                    } else if (section === "services") {
+                        contentDiv.innerHTML = `
+                            <h2>📁 Projects</h2>
+                            <ul>
+                                {{#each projects}}
+                                <li>
+                                    <h3>📝 {{name}}</h3>
+                                    <p>🖊️ {{description}}</p>
+                                    <p><strong> 💡 Technologies:</strong> {{#each technologies}}{{this}} {{/each}}</p>
+                                    {{#if github_link}}
+                                    <p><a href="{{github_link}}" target="_blank">🌐 GitHub</a></p>
+                                    {{/if}}
+                                    {{#if live_demo}}
+                                    <p><a href="{{live_demo}}" target="_blank">💻 Live Demo</a></p>
+                                    {{/if}}
+                                </li>
+                                {{/each}}
+                            </ul>`;
+                    } else if (section === "experience") {
+                        contentDiv.innerHTML = `
+                            <h2>👑 Experience</h2>
+                            <p>{{{experience}}}</p>
+                            <br>
+                            <h2>💪 Skills :</h2>
+                            <p>{{{skills}}}</p>`;
+                    } else if (section === "contact") {
+                        contentDiv.innerHTML = `
+                            <h2>📞 Contact Me Via</h2>
+                            <p><strong>📠 Email:</strong> {{email}}</p>
+                            <p><strong>☎️ Phone:</strong> {{contact}}</p>
+                            <div class="contact-links">
+                            {{#if social_links.github}}
+                            <div class="contact-box">
+                                <a href="{{social_links.github}}" target="_blank">
+                                    <img src="https://img.icons8.com/ios-filled/50/000000/github.png" alt="GitHub">
+                                    <h3>GitHub</h3>
+                                </a>
+                            </div>
+                            {{/if}}
+                            {{#if social_links.linkedin}}
+                            <div class="contact-box">
+                                <a href="{{social_links.linkedin}}" target="_blank">
+                                    <img src="https://img.icons8.com/color/48/000000/linkedin.png" alt="LinkedIn">
+                                    <h3>LinkedIn</h3>
+                                </a>
+                            </div>
+                            {{/if}}
+                            {{#if social_links.twitter}}
+                            <div class="contact-box">
+                                <a href="{{social_links.twitter}}" target="_blank">
+                                    <img src="https://img.icons8.com/color/48/000000/twitter.png" alt="Twitter">
+                                    <h3>Twitter</h3>
+                                </a>
+                            </div>
+                            {{/if}}
+                            {{#if social_links.facebook}}
+                            <div class="contact-box">
+                                <a href="{{social_links.facebook}}" target="_blank">
+                                    <img src="https://img.icons8.com/color/48/000000/facebook.png" alt="Facebook">
+                                    <h3>Facebook</h3>
+                                </a>
+                            </div>
+                            {{/if}}
+                            </div>`;
+                    }
+                });
+            });
+
+            // Load the home content by default
+            contentDiv.innerHTML = `
+               <h2>Home</h2>
+               <p>😊 Welcome to my portfolio!  🙏</p>
+               <div class="defaultImg">
+                {{#if profile_photo}}
+                <img src="{{profile_photo}}" alt="Profile Photo">
+                {{else}}
+                <p>No profile photo provided.</p>
+                {{/if}}
+                </div>
+                <p>Hello! 👋 My name is <strong>{{name}}</strong></p><br>`;
+        });
+    </script>
+</body>
+
+</html>

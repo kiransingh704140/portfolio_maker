@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Portfolio Form</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            height: 100vh; /* Full viewport height */
+        }
+        .container {
+            width: 100%;
+            max-width: 750px; 
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            box-sizing: border-box;
+            max-height: 90vh; /* Prevent form from exceeding viewport height */
+            overflow-y: auto; /* Allow scrolling if content is too long */
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin: 10px 0 5px;
+            color: #333;
+        }
+        input[type="text"], input[type="url"], textarea {
+            width: calc(100% - 22px); /* Full width minus padding and border */
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        textarea {
+            height: 100px;
+            resize: vertical; /* Allow vertical resize only */
+        }
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 10px 0;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Portfolio Form</h1>
+        <form action="/submit" method="post">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required>
+
+            <label for="bio">Bio:</label>
+            <textarea id="bio" name="bio" required></textarea>
+
+            <label for="contact">Contact:</label>
+            <input type="text" id="contact" name="contact" required>
+
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email" required>
+
+            <label for="skills">Skills (comma-separated):</label>
+            <input type="text" id="skills" name="skills" required>
+
+            <label for="education">Education (comma-separated):</label>
+            <input type="text" id="education" name="education" required>
+
+            <label for="experience">Experience (comma-separated):</label>
+            <input type="text" id="experience" name="experience" required>
+
+            <label for="services">Services (comma-separated):</label>
+            <input type="text" id="services" name="services" required>
+
+            <label for="blog">Blog (comma-separated):</label>
+            <input type="text" id="blog" name="blog" required>
+
+            <label for="project_name">Project Name:</label>
+            <input type="text" id="project_name" name="project_name" required>
+
+            <label for="project_desc">Project Description:</label>
+            <textarea id="project_desc" name="project_desc" required></textarea>
+
+            <label for="project_tech">Project Technologies (comma-separated):</label>
+            <input type="text" id="project_tech" name="project_tech" required>
+
+            <label for="github_link">GitHub Link:</label>
+            <input type="url" id="github_link" name="github_link">
+
+            <label for="live_demo">Live Demo Link:</label>
+            <input type="url" id="live_demo" name="live_demo">
+
+            <label for="profile_photo">Profile Photo URL:</label>
+            <input type="url" id="profile_photo" name="profile_photo">
+
+            <label for="linkedin_link">LinkedIn Link:</label>
+            <input type="url" id="linkedin_link" name="linkedin_link">
+
+            <label for="twitter_link">Twitter Link:</label>
+            <input type="url" id="twitter_link" name="twitter_link">
+
+            <label for="facebook_link">Facebook Link:</label>
+            <input type="url" id="facebook_link" name="facebook_link">
+
+            <input type="submit" value="Submit">
+        </form>
+    </div>
+</body>
+</html>
