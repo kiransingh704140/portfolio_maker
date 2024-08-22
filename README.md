@@ -3,11 +3,11 @@
 
 ## 📝 Overview
 
-Introducing the ** Portfolio Web Application**, a powerful tool designed for professionals, creatives, and students to create and customize their digital portfolios effortlessly. Developed using Rust 🦀, this application allows users to input their personal information, professional experiences, skills, and projects to generate a fully responsive and stylish portfolio website. With features such as real-time content updates, easy navigation, and social media connectivity, this tool offers a comprehensive solution for building an online presence.
+Introducing the **Dynamic Portfolio Web Application**, a powerful tool designed for professionals, creatives, and students to create and customize their digital portfolios effortlessly. Developed using Rust 🦀, this application allows users to input their personal information, professional experiences, skills, and projects to generate a fully responsive and stylish portfolio website. With features such as real-time content updates, easy navigation, and social media connectivity, this tool offers a comprehensive solution for building an online presence.
 
 ## 🔄 Application Workflow
 
-The ** Portfolio Web Application** simplifies the portfolio creation process by guiding users through a set of interactive forms 🖊️ where they can input various details like personal info, professional services, expertise, and more. Upon submission, the app compiles all the data into a well-organized and visually appealing portfolio 🎨. Users can easily browse through different sections via a sidebar, with content dynamically loaded into the main view. The application is designed to be responsive 📱, ensuring that the portfolio looks great on both desktop and mobile devices.
+The **Dynamic Portfolio Web Application** simplifies the portfolio creation process by guiding users through a set of interactive forms 🖊️ where they can input various details like personal info, professional services, expertise, and more. Upon submission, the app compiles all the data into a well-organized and visually appealing portfolio 🎨. Users can easily browse through different sections via a sidebar, with content dynamically loaded into the main view. The application is designed to be responsive 📱, ensuring that the portfolio looks great on both desktop and mobile devices.
 
 ## 🎯 Benefits of Using This Tool
 
